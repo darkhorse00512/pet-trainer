@@ -1,0 +1,53 @@
+
+project_id = "vuzhlwyhcrsxqfysczsu"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+# port = 54324
+site_url = "https://tiertrainer24.com"
+additional_redirect_urls = [
+  "https://localhost:3000", 
+  "https://tiertrainer24.com",
+  "https://7657d7bf-59f7-48e0-981a-0749237e5fa0.lovableproject.com"
+]
+jwt_expiry = 3600
+enable_signup = true
+# email_double_confirm_changes = true
+enable_anonymous_sign_ins = false
+# Reduce OTP expiry for security (15 minutes)
+# mailer_otp_exp = 900
+# Enable leaked password protection
+# password_min_length = 8
+# password_require_mixed_case = true  
+# password_require_symbols = true
+# password_require_numbers = true
+# enable_leaked_password_protection = true
+# Ensure email confirmation URL points to our callback
+# email_confirm_url = "https://tiertrainer24.com/auth/callback"
+# Set longer expiry for email tokens
+# mailer_secure_email_change_enabled = true
+
+[functions.create-checkout]
+verify_jwt = true
+
+[functions.check-subscription]
+verify_jwt = true
+
+[functions.customer-portal]
+verify_jwt = true
+
+[functions.manage-trial]
+verify_jwt = true
+
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.auth-email-handler]
+verify_jwt = false
